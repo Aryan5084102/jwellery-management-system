@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Header from '../../components/Header';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
@@ -22,7 +21,6 @@ export default function BankbookPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Header />
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-slate-800">Bank Book</h2>
         

@@ -1,13 +1,11 @@
 'use client';
 
 import React from 'react';
-import Header from '../../components/Header';
 import MetalRatesDisplay from '../../components/MetalRatesDisplay';
 
 export default function MetalRatesPage() {
   return (
     <div className="min-h-screen bg-gray-100">
-      <Header />
       <div className="p-6">
         {/* Page Title */}
         <div className="mb-6">

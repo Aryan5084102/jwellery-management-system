@@ -1,7 +1,6 @@
 'use client';
 
 import { useSelector } from 'react-redux';
-import Header from '../components/Header';
 import MetalRatesWidget from '../components/MetalRatesWidget';
 import { RootState } from '../redux/store';
 
@@ -29,7 +28,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Header />
       <div className="p-6">
         {/* Page Title */}
         <div className="mb-6">
