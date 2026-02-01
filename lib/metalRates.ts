@@ -1,5 +1,5 @@
 // Metal Rates API Service
-// Fetches live gold and silver rates from various sources
+// Fetches live gold and silver rates from goldAPI.io via internal API route
 
 export interface MetalRates {
   gold: {
@@ -64,22 +64,42 @@ function generateMockRates(): MetalRates {
   };
 }
 
-// Fetch rates from free APIs
+// Fetch rates from internal API route (which calls goldAPI.io)
+async function fetchFromInternalAPI(): Promise<MetalRates | null> {
+  try {
+    const response = await fetch('/api/metal-rates', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const data = await response.json();
+    
+    if (data.rates) {
+      return data.rates;
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Error fetching from internal API:', error);
+    return null;
+  }
+}
+
+// Fetch rates from free APIs as fallback
 async function fetchFromFreeAPI(): Promise<MetalRates | null> {
   try {
-    // Using a demo/free API endpoint
-    // In production, you would use paid APIs like:
-    // - GoldAPI.io
-    // - MetalPriceAPI.com
-    // - Commodities-API.com
-    
-    // For demo purposes, we'll simulate an API call
     const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=gold&vs_currencies=inr', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
       },
-      // Add cache-buster to prevent caching
       cache: 'no-store',
     });
 
@@ -119,14 +139,20 @@ async function fetchFromFreeAPI(): Promise<MetalRates | null> {
 
 // Main function to fetch metal rates
 export async function fetchMetalRates(): Promise<MetalRates> {
-  // Try to fetch from API first
-  const apiRates = await fetchFromFreeAPI();
+  // Try to fetch from internal API first (which calls goldAPI.io)
+  const internalRates = await fetchFromInternalAPI();
   
-  if (apiRates && !apiRates.isMock) {
-    return apiRates;
+  if (internalRates && !internalRates.isMock) {
+    return internalRates;
   }
   
-  // Fallback to mock data with realistic values
+  // Fallback to free API
+  const freeApiRates = await fetchFromFreeAPI();
+  if (freeApiRates && !freeApiRates.isMock) {
+    return freeApiRates;
+  }
+  
+  // Final fallback to mock data with realistic values
   return generateMockRates();
 }
 
