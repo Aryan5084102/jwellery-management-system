@@ -1,0 +1,729 @@
+@import "tailwindcss";
+
+:root {
+  /* Online Munim Color Scheme - Traditional Business Software */
+  --primary-color: #1a5276;       /* Deep blue - professional */
+  --primary-hover: #154360;       /* Darker blue */
+  --secondary-color: #5d6d7e;     /* Steel gray */
+  --success-color: #1e8449;       /* Forest green */
+  --warning-color: #b7950b;       /* Gold/amber */
+  --danger-color: #c0392b;        /* Deep red */
+  --background: #f5f6fa;          /* Light gray background */
+  --card-bg: #ffffff;             /* White cards */
+  --text-primary: #2c3e50;        /* Dark slate */
+  --text-secondary: #5d6d7e;      /* Medium gray */
+  --border-color: #d5dbdb;        /* Light border */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --gold-color: #d4af37;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* ============================================
+   ONLINE MUNIM STYLE - TRADITIONAL BUSINESS UI
+   ============================================ */
+
+/* Smooth transitions */
+a, button, input, select, textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* ============================================
+   HEADER STYLES - Traditional Horizontal Menu
+   ============================================ */
+header {
+  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid var(--gold-color);
+}
+
+header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+header a {
+  padding: 0.6rem 1rem;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+header a:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--gold-color);
+}
+
+header a.active {
+  background-color: var(--gold-color);
+  color: #1a252f;
+}
+
+/* ============================================
+   CARD STYLES - Clean Business Cards
+   ============================================ */
+.bg-white {
+  background: var(--card-bg);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.bg-white:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.bg-white > h3:first-of-type,
+.bg-white h3 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   FORM STYLES - Traditional Business Forms
+   ============================================ */
+input, select, textarea {
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  background-color: #fff;
+  width: 100%;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: #fefefe;
+  box-shadow: 0 0 0 2px rgba(26, 82, 118, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #95a5a6;
+}
+
+/* Form labels */
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================
+   BUTTON STYLES - Traditional Business Buttons
+   ============================================ */
+button {
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Primary button - Blue */
+.bg-blue-500,
+.bg-blue-600,
+button[type="submit"]:not(.bg-green-500):not(.bg-red-500) {
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: white;
+  border: 1px solid var(--primary-hover);
+}
+
+.bg-blue-500:hover,
+.bg-blue-600:hover,
+button[type="submit"]:not(.bg-green-500):not(.bg-red-500):hover {
+  background: linear-gradient(180deg, var(--primary-hover) 0%, #0e2a3a 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Success button - Green */
+.bg-green-500 {
+  background: linear-gradient(180deg, var(--success-color) 0%, #145a32 100%);
+  color: white;
+  border: 1px solid #145a32;
+}
+
+.bg-green-500:hover {
+  background: linear-gradient(180deg, #27ae60 0%, var(--success-color) 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Danger button - Red */
+.bg-red-500 {
+  background: linear-gradient(180deg, var(--danger-color) 0%, #922b21 100%);
+  color: white;
+  border: 1px solid #922b21;
+}
+
+.bg-red-500:hover {
+  background: linear-gradient(180deg, #e74c3c 0%, var(--danger-color) 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline button */
+button[type="button"].border,
+button.border {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+button[type="button"].border:hover,
+button.border:hover {
+  background-color: var(--background);
+  border-color: var(--primary-color);
+}
+
+/* ============================================
+   TABLE STYLES - Traditional Business Tables
+   ============================================ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+th {
+  background: linear-gradient(180deg, #e8e8e8 0%, #d5d5d5 100%);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+th:first-child {
+  border-radius: 3px 0 0 0;
+}
+
+th:last-child {
+  border-radius: 0 3px 0 0;
+}
+
+td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Table borders */
+.border {
+  border: 1px solid var(--border-color);
+}
+
+.border-b {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================
+   STATUS BADGES - Traditional Style
+   ============================================ */
+span[class*="bg-green"],
+span[class*="bg-green-"] {
+  background: #d5f5e3;
+  color: #145a32;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid #abebc6;
+}
+
+span[class*="bg-red"],
+span[class*="bg-red-"] {
+  background: #fadbd8;
+  color: #922b21;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid #f5b7b1;
+}
+
+span[class*="bg-yellow"],
+span[class*="bg-yellow-"] {
+  background: #fcf3cf;
+  color: #7d6608;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid #f9e79f;
+}
+
+span[class*="bg-blue"],
+span[class*="bg-blue-"] {
+  background: #d4e6f1;
+  color: #1a5276;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid #a9cce3;
+}
+
+/* ============================================
+   STAT CARDS - Dashboard Stats
+   ============================================ */
+.bg-white h3 {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.bg-white p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Stat card borders */
+.border-l-4 {
+  border-left-width: 4px;
+}
+
+.border-green-500 {
+  border-left-color: var(--success-color);
+}
+
+.border-blue-500 {
+  border-left-color: var(--primary-color);
+}
+
+.border-purple-500 {
+  border-left-color: #8e44ad;
+}
+
+.border-red-500 {
+  border-left-color: var(--danger-color);
+}
+
+.border-yellow-500 {
+  border-left-color: var(--warning-color);
+}
+
+/* ============================================
+   HEADINGS
+   ============================================ */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold-color);
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.rounded {
+  border-radius: 3px;
+}
+
+.rounded-lg {
+  border-radius: 4px;
+}
+
+.rounded-xl {
+  border-radius: 6px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-500 {
+  color: var(--text-secondary);
+}
+
+.text-gray-600 {
+  color: var(--text-secondary);
+}
+
+.text-green-600 {
+  color: var(--success-color);
+}
+
+.text-red-600 {
+  color: var(--danger-color);
+}
+
+.text-blue-600 {
+  color: var(--primary-color);
+}
+
+/* ============================================
+   FLEX UTILITIES
+   ============================================ */
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+/* ============================================
+   GRID LAYOUTS
+   ============================================ */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+/* ============================================
+   OVERFLOW & SCROLL
+   ============================================ */
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+/* ============================================
+   GOLD/JEWELLERY THEME
+   ============================================ */
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
+}
+
+.gold-text {
+  color: #b8860b;
+}
+
+.gold-border {
+  border-color: var(--gold-color);
+}
+
+.bg-gold-light {
+  background-color: #fef9e7;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bg-white {
+  animation: fadeIn 0.3s ease-out;
+}
+
+form {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================
+   DELETE/EDIT ACTIONS
+   ============================================ */
+.text-red-500 {
+  color: var(--danger-color);
+}
+
+.text-red-500:hover {
+  color: #922b21;
+  text-decoration: underline;
+}
+
+/* ============================================
+   SELECT DROPDOWN ARROW
+   ============================================ */
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%235d6d7e'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* ============================================
+   INPUT TYPES
+   ============================================ */
+input[type="date"] {
+  cursor: pointer;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.text-center.text-gray-500 {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  header ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .grid-cols-1\.md\:grid-cols-2,
+  .grid-cols-1\.md\:grid-cols-3,
+  .grid-cols-1\.md\:grid-cols-4,
+  .grid-cols-1\.md\:grid-cols-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   FORM SECTIONS & LINE ITEMS
+   ============================================ */
+form > .flex.items-center.gap-3 {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+form h3 {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.grid.grid-cols-1\.md\:grid-cols-7 {
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  border-radius: 3px;
+}
+
+/* ============================================
+   FOOTER/USER INFO
+   ============================================ */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-top: auto;
+}
+
+.user-info p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.user-info p:first-child {
+  font-weight: 600;
+}
+
+/* ============================================
+   QUANTITY/WEIGHT INPUTS
+   ============================================ */
+input[type="number"].text-center {
+  text-align: center;
+}
+
+input[type="number"].text-right {
+  text-align: right;
+}
+
+/* ============================================
+   MONEY DISPLAY
+   ============================================ */
+.rupee-symbol::before {
+  content: '₹';
+  margin-right: 2px;
+}
+
